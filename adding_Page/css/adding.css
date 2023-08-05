@@ -1,0 +1,75 @@
+body{
+    background: url(../../img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 180vh;
+    background: rgba(7, 7, 7, 0.288);
+    z-index: -1;
+}
+
+.addingProductForm{
+    padding: 5rem 0;
+}
+
+.addingProductForm .container{
+    background-color: rgba(255, 255, 255, 0.979);
+    width: 1000px;
+    height: auto;
+    border-radius: 10px;
+    padding: 30px 65px;
+    box-shadow: -15px 18px 26px -6px rgba(0,0,0,0.77);
+-webkit-box-shadow: -15px 18px 26px -6px rgba(0,0,0,0.77);
+-moz-box-shadow: -15px 18px 26px -6px rgba(0,0,0,0.77);
+
+}
+
+
+.formTitle{
+    text-align: center;
+    font-weight: 700;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.previousBtn{
+    border: 1px solid #0000000d;
+    width: 60px;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 30px;
+    
+}
+
+.previousBtn:hover{
+    border: 1px solid #00000083;
+}
+
+.previousBtn:hover a{
+    color: #d6b696;
+}
+
+.previousBtn a{
+    color: #948372;
+}
+
+.formBody{
+    margin-top: 20px;
+}
+
+.form-label{
+    font-size: 18px;
+}
+
+.error{
+    display: none;
+    color: red;
+    font-weight: 500;
+    font-size: 14px;
+    
+}

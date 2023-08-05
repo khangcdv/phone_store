@@ -1,0 +1,246 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0 15px;
+	font-family: "Montserrat", sans-serif;
+  }
+.nav-link {
+    font-weight: 500;
+    margin: 0 6px;
+}
+
+.nav-bg{
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);   
+     border-bottom: 3px solid #f55f8d;
+}
+
+.navbar-dark .navbar-toggler {
+    font-size: 30px;
+    color: #f8ae56;
+    border-color: rgba(255,255,255,.1);
+}
+
+.navbar-brand{
+    width: 150px;
+    height: 100px;
+}
+
+ul.navbar-nav li a {
+    color: #303481 !important;
+    position: relative;
+}
+ul.navbar-nav li a:hover {
+    color: #04cbc6 !important;
+}
+ul.navbar-nav li a:hover::after{
+    transform: scale(1, 1);
+}
+ul.navbar-nav li a::after{
+    background-color: #04cbc6;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    transform: scale(0, 1);
+    transition: transform 0.3s;
+}
+.carousel {
+	background-image: url(../img/half-screen-yelllow-new.jpg.png);
+	background-size: cover;
+	background-position: center left;
+  }
+  .carousel .container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 800px;
+	
+  }
+  .carousel .container .detail{
+	width: 70%;
+	padding-left: 30px;
+  }
+  .carousel .container .detail .product-name {
+	font-size: 50px;
+	font-weight: bold;
+	color: #efdb44;
+  }
+  .carousel .container .detail .product-desc {
+	font-size: 23px;
+	font-weight: 600;
+	color: #000;
+	margin-top: 20px;
+  }
+  .carousel .container .detail .description {
+	font-size: 16px;
+	font-weight: 300;
+	color: #000;
+	margin-bottom: 18px;
+  }
+  .carousel .container .detail .btn-shop {
+	font-size: 16px;
+	font-weight: 600;
+	color: #2a73dd;
+	background: transparent;
+	padding: 10px 30px;
+	border: 2px solid #2a73dd;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  .carousel .container .detail .btn-shop:hover {
+	background: #2a73dd;
+	color: #fff;
+  }
+  .carousel .container .detail .btn-info {
+	font-size: 16px;
+	font-weight: 400;
+	color: #fff;
+	background: linear-gradient(90deg, rgb(203, 251, 255) 20%, rgb(6, 10, 210) 100%);
+	padding: 10px 30px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  .carousel .container .detail .btn-info:hover {
+	background: transparent;
+	color: #000;
+  }
+  .carousel .container .thumbnail img {
+	width: 70%;
+	margin-left: 200px;
+  }
+.carousel .container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 800px;
+  }
+
+.navbar-brand img{
+    width: 100%;
+}
+
+.footer {
+	background-color: rgb(23, 16, 16);
+}
+
+.footer .container {
+	padding: 3rem 15px;
+}
+
+.footer .container .row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.footer .container .row .contact {
+	width: 50%;
+	padding-right: 15px;
+}
+
+.footer .container .row .contact h6 {
+	color: #fff;
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 600;
+	margin-bottom: 25px;
+	text-transform: none;
+}
+
+.footer .container .row .contact ul {
+	list-style-type: none;
+}
+
+.footer .container .row .contact ul li {
+	font-weight: 300;
+	font-size: 15px;
+	color: #696969;
+	line-height: 20px;
+	margin-bottom: -0.2rem;
+}
+
+.footer .container .row .contact ul li a {
+	text-decoration: none;
+	color: #696969;
+}
+
+.footer .container .row .contact ul li .links:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.footer .container .row .contact .social .social-icons {
+	margin-top: 1rem;
+	list-style: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: left;
+	-ms-flex-pack: left;
+	justify-content: left;
+}
+
+.footer .container .row .contact .social .social-icons li {
+	margin-right: 1rem;
+}
+
+.footer .container .row .contact .social .social-icons .icon:hover {
+	color: #fff;
+}
+
+.footer .container .row .contact {
+	width: 50%;
+}
+
+.footer .container .row .contact .info {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer .container .row .contact .info .info-list li {
+	font-weight: 300;
+	font-size: 16px;
+	color: #696969;
+	line-height: 28px;
+	margin-bottom: 0.5rem;
+}
+
+.footer .end-footer {
+	border-top: 1px solid rgba(103, 99, 99, 0.14);
+}
+
+.footer .end-footer .container {
+	padding: 1rem 0;
+}
+
+.footer .end-footer .container p {
+	text-align: center;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 28px;
+	color: #696969;
+}
+
+.footer .end-footer .container p a {
+	color: #f53626;
+	text-decoration: none;
+}
+
+.footer .end-footer .container p .links:hover {
+	text-decoration: underline;
+}

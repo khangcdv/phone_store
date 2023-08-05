@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPhoneStore</title>
+    <link rel="icon" href="./img/mobile.png">
+    <!-- font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- main Css -->
+    <link rel="stylesheet" href="./index_css/blog.css">
+</head>
+
+<body id="body">
+    <header style="left: 0;width:100%; z-index: 999;">
+        <nav class="navbar navbar-expand-lg navbar-dark nav-bg px-lg-5 ">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="home.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="Product.html">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="contact.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="#">Bài viết </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="pro.html">Hồ sơ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="storeBanner">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h2 class="text">Bài viết</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="list-pic">
+        <div class="title-pic">
+            <h6 class="sub-title">Bài viết </h6>
+            <h3 class="hny-title">Bước Tiến Mới Trong Công Nghệ Di Động</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom"  src="img/camera-oppo.jpg"
+                                 />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Trải nghiệm camera oppo</a>
+                        <p>
+                            Phần cứng quan trọng nhưng OPPO đã cho ta thấy trải nghiệm người dùng mới là đỉnh cao ....
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">Hải Trần</a> 
+                            <span class="day"> 2-3-2023 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 30 bình luận</span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 30 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/Apple-iPhone-11-Review.jpg" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Iphone 11 - Một chữ siêu phẩm</a>
+                        <p>
+                            iPhone 11 – Trung tâm của sự chú ý trong năm vừa qua bởi trang bị kha khá những tính năng thông minh ...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">ĐT giá kho</a> 
+                            <span class="day"> 2-1-2023 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 36 bình luận</span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 45 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/Galaxy-A-Series-3-1.jpg"  />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Đột phá từ Galaxy A</a>
+                        <p>
+                            Galaxy A là dòng smartphone dành cho giới trẻ bán chạy nhất thế giới, nhờ vào thấu hiểu khách hàng,...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">Viettel store</a> -
+                            <span class="day"> 12-2-2023 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 12 bình luận</span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 24 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/Xiaomi-1027.jpg" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Tin tức mới về Xiaomi</a>
+                        <p>
+                            Cuối năm là dịp lý tưởng để tậu smartphone đến từ các “ông lớn” công nghệ với giá ưu đãi ...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">Vietnamnet</a>
+                            <span class="day"> 3-5-2023 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 98 bình luận/span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 124 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/time phone.jpg" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">"Nghiện" điện thoại</a>
+                        <p>
+                            Người Việt dành hơn 70% thời gian sử dụng điện thoại để giải trí trong dịp Tết
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">Báo diện tử vtv</a>
+                            <span class="day"> 29-12-2022 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 12 bình luận </span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 31 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="/img/iphone-15-series-cap-nhat-nhung-tin-tuc-moi-nhat-nam-2023-01681360940.jpg" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Iphone 15 Series</a>
+                        <p>
+                            Apple đang phát triển flagship iPhone 15 Ultra mới để ra mắt vào năm sau và thay thế cho mẫu Pro Max ...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">tgdd</a> -
+                            <span class="day"> 4-5-2023</span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 54 bình luận </span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 78 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/Moto G.png" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Điện thoại Moto G mới nhất </a>
+                        <p>
+                            Motorola đã "lén lút" cho ra lò chiếc điện thoại tầm trung mới nhất mang tên Moto G60S...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">DocCoCauBai</a> -
+                            <span class="day"> 2-2-2023</span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 56 bình luận</span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 99 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/thi-truong-dt.jpg" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Thị trường điện thoại di động</a>
+                        <p>
+                            Euromonitor dự báo sản lượng tiêu thụ của điện thoại thông minh tại Việt Nam sẽ tiếp tục mở rộng...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">Baobinhphuoc</a>
+                            <span class="day"> 16-2-2023 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 67 bình luận</span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 100 lươt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card">
+                        <a href="blog.html">
+                            <img class="card-img-bottom" src="img/vertu-metavertu-web3-4.jpg" alt="Card image cap" />
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <a href="blog.html" class="blog-desc">Vertu ra mắt điện thoại Web3</a>
+                        <p>
+                            Mới đây, thương hiệu điện thoại cao cấp Vertu ra mắt sản phẩm mới với tên gọi METAVERTU...
+                        </p>
+                        <div class="name-day">
+                            <a href="#author" class="name">HoangHa</a>
+                            <span class="day"> 4-5-2023 </span>
+                        </div>
+                        <div class="blog-view">
+                            <div class="comments">
+                                <span> <span class="fa fa-comment"></span> 14 bình luận</span>
+                            </div>
+                            <div class="views">
+                                <span class="meta-value">
+                                    <span class="fa fa-eye"></span> 30 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination-wrapper mt-5">
+                <ul class="page-pagination">
+                    <li><a class="page-numbers active">1</a></li>
+                    <li><a class="page-numbers">2</a></li>
+                    <li><a class="page-numbers">3</a></li>
+                    <li><a class="page-numbers">4</a></li>
+                    <li><a class="page-numbers">....</a></li>
+                    <li><a class="page-numbers">15</a></li>
+                    <li>
+                        <a class="next"><span class="fa fa-angle-right"></span></a>
+                    </li>
+                </ul>
+            </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="contact ">
+                        <h6>Thông tin liên hệ</h6>
+                        <ul>
+                            <li>
+                                <p>
+                                    <strong>Địa chỉ</strong> : 70 Tô Ký, Tân Chánh Hiệp, Quận 12, Thành phố Hồ Chí
+                                    Minh
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Số điện thoại</strong> :
+                                    <a href="tel:+(84)979-99-79" class="links">+(84)979-99-79</a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Email</strong>
+                                    :
+                                    <a href="mailto:example@mail.com" class="links">min.ip@mail.com</a>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="social">
+                            <ul class="social-icons">
+                                <li class="facebook">
+                                    <a href="https://www.facebook.com/" class="icon">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="twitter">
+                                    <a href="https://twitter.com/" class="icon">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="dribbble">
+                                    <a href="https://dribbble.com/" class="icon">
+                                        <i class="fa-brands fa-dribbble"></i>
+                                    </a>
+                                </li>
+                                <li class="google">
+                                    <a href="https://contacts.google.com/" class="icon">
+                                        <i class="fa-brands fa-google"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contact ">
+                        <div class="info">
+                            <div class="info-list ">
+                                <h6>Quyền lợi</h6>
+                                <ul>
+                                    <li><a href="#" class="links">Tích điểm và quà tặng</a></li>
+                                    <li><a href="#" class="links">Voucher mua hàng</a></li>
+                                    <li><a href="#" class="links">Mua trả góp</a></li>
+                                    <li><a href="#" class="links">Thành viên VIP</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="info-list ">
+                                <h6 class="footer-title-28">Thêm</h6>
+                                <ul>
+                                    <li><a href="#" class="links">Cảnh báo mua hàng</a></li>
+                                    <li><a href="#" class="links">Hướng dẫn mua onlline</a></li>
+                                    <li><a href="#" class="links">Nội quy cửa hàng</a></li>
+                                    <li><a href="#" class="links">Chất lượng phục vụ</a></li>
+                                </ul>
+                            </div>
+                            <div class="info-list ">
+                                <h6>Hỗ trợ</h6>
+                                <ul>
+                                    <li><a href="csbh.html" class="links">Chính sách bảo hành, đổi trả, vận chuyển</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="end-footer ">
+                <div class="container">
+                    <p class="info-footer ">
+                        2023 Webphone. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+          
+        </script>
+    
+        <!-- backToTop -->
+    <a class="backToTop cd-top text-replace js-cd-top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+    </footer>
+    <!-- backToTop -->
+    <!-- backToTop -->
+    
+    <!-- Jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!-- backToTop -->
+    <script src="./js/efffectJs/backToTop.js"></script>
+    <script src="./js/efffectJs/util.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"
+        integrity="sha512-zJYu9ICC+mWF3+dJ4QC34N9RA0OVS1XtPbnf6oXlvGrLGNB8egsEzu/5wgG90I61hOOKvcywoLzwNmPqGAdATA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/filterOption.js"></script>
+    <!-- Open and close cart  -->
+    <script src="./js/cart/cart-js.js"></script>
+    <!-- Product service axios -->
+    <script src="./js/services/productService.js"></script>
+    <!-- Product OOP -->
+    <script src="./js/models/products.js"></script>
+    <!-- main -->
+    <script src="./js/Product.js"></script>
+
+    </section>
+
+</html>

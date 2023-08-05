@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MIn store</title>
+  <link rel="icon" href="./img/app-development.png">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <!-- FA6 -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./admin_css/admin.css" />
+  </head>
+
+  <body>
+    <!--//////////////////// Navigation Bar ////////////////////-->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Quản lý sản phẩm</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="dashboard.html">Dasboard</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="admin_chart.html">
+                          <i class="fa-duotone fa-chart-simple"></i> Chart
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">
+                          <i class="fa-duotone fa-calendar"></i> Exit
+                      </a>
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--////////////////////End of Navigation Bar ////////////////////-->
+
+    <section class="productsBoard">
+      <div class="container ">
+        <!-- Header Board -->
+        <div class="headerBoard mb-3">
+          <div class="container">
+            <h2>Thông tin sản phẩm</h2>
+          </div>
+        </div>
+
+        <!-- Body Board -->
+        <div class="bodyBoard">
+          <div class="row mb-4">
+            <div class="col-9">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default"
+                  ><i class="fa-duotone fa-magnifying-glass"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                  placeholder="Tìm kiếm sản phẩm"
+                  oninput="searchProduct(event)"
+                />
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="container">
+                
+                <a class="btn btn-primary" href="./adding_Page/adding.html">Thêm sản phẩm</a>
+              </div>
+             
+            </div>
+
+            <div class="col-2">
+              <div class=" form-group d-flex">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-duotone fa-filters"></i></span>
+                <select name="" id="typeOption" class="form-control" onchange="filterProductByOption()" >
+                  <option value="0">Tất cả mẫu</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Board -->
+          <table class="table table-bordered table-striped table-hover">
+            <thead class="">
+              <tr>
+                <th>Ảnh sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Màn hình</th>
+                <th width="">Camera Sau</th>
+                <th width="">Camera Trước</th>
+                <th width="">Mô tả</th>
+                <th>Loại</th>
+                <th><i class="fa-duotone fa-gears"></i></th>
+              </tr>
+            </thead>
+            <tbody id="productTable">
+              
+
+            </tbody>
+           
+          </table>
+          <div class="centerSpinner">
+            <div class="spinner-border text-primary " role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </section>
+
+    <!-- /////////////////Editing Modal//////////////// -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Chỉnh sửa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="updatedProductForm" role="form">
+          <!-- Id sản phẩm -->
+          <div class="mb-3 d-none">
+            <label class="form-label">id sản phẩm</label>
+            <input id="updIdProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span  class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+          <!-- Tên sản phẩm -->
+          <div class="mb-3">
+            <label class="form-label">Tên sản phẩm</label>
+            <input id="updNameProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorName" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Giá sản phẩm -->
+          <div class="mb-3">
+            <label class="form-label">Giá sản phẩm</label>
+            <input id="updPriceProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorPrice" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Màn hình sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Màn hình sản phẩm</label>
+            <input id="updScreenProduct" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorScreen" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+          <!-- Camera sau của sản phẩm -->
+          <div class="mb-3">
+            <label class="form-label">Camera sau của sản phẩm</label>
+            <input id="updBackCamera" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorBCam" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Camera trước của sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Camera trước của sản phẩm</label>
+            <input id="updFrontCamera" type="text" class="form-control" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorFCam" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Hình ảnh của sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Hình ảnh của sản phẩm</label>
+            <input id="updImgProduct" type="text" class="form-control" placeholder="Nhập đường dẫn trực tuyến: http://abc.com" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorImg" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Mô tả sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Mô tả sản phẩm</label>
+            <input id="updDescProduct" type="text" class="form-control" placeholder="Mô tả nhiều nhất được 12 từ" id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorDesc" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+           <!-- Loại sản phẩm -->
+           <div class="mb-3">
+            <label class="form-label">Loại sản phẩm</label>
+            <input id="updTypeProduct" type="text" class="form-control"  id="inputGroup-sizing-default" >
+            <div class="form-text"><span id="errorType" class="error"></span></div>
+          </div>    
+          <!--//////////  -->
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="confirmEdit" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- //////////////////////////// -->
+
+    <!-- Axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"
+      integrity="sha512-zJYu9ICC+mWF3+dJ4QC34N9RA0OVS1XtPbnf6oXlvGrLGNB8egsEzu/5wgG90I61hOOKvcywoLzwNmPqGAdATA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- ////////// -->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/_validAddFrom.js"></script>
+    <script src="./js/filterOption.js"></script>
+    <script src="./js/models/products.js"></script>
+    <script src="./js/services/productService.js"></script>
+    <script src="./js/admin.js"></script>
+  </body>
+</html>

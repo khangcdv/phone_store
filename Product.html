@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPhoneStore</title>
+    <link rel="icon" href="./img/mobile.png">
+    <!-- font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- main Css -->
+    <link rel="stylesheet" href="./index_css/Product.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <style>
+        .list_comment {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+            .comment:hover {
+                background-color: #f7f7f7;
+            }
+
+        .useful-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            font-family: 'Material Icons Sharp';
+            font-size: 20px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .floating-icon {
+            display: none;
+            position: absolute;
+            font-size: 24px;
+            color: #ffcc00;
+        }
+
+        .comment:hover .floating-icon {
+            display: inline-block;
+            animation: floatIcon 2s infinite;
+        }
+
+        @keyframes floatIcon {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body id="body">
+    <header style="left: 0;width:100%; z-index: 999;">
+        <nav class="navbar navbar-expand-lg navbar-dark nav-bg px-lg-5 ">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="home.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="#">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="contact.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="/blog.html">Bài viết </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="pro.html">Hồ sơ</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nav-link cart-icon" id="btnOpenCart" onclick="openCart()" href="#">
+                <i class="fa-solid fa-cart-shopping "></i>
+            </a>
+
+        </nav>
+    </header>
+
+    <section class="storeBanner">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h2 class="text">Sản phẩm</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu mt-5  ">
+        <div class="title-pic">
+            <h1 class="sub-title">Uy tín </h1>
+            <h3 class="hny-title">Tiên phong dẫn lối đi đầu</h3>
+        </div>
+        <div class="container">
+            <div class="menu-search  d-lg-flex align-items-center">
+                <h5 class="mb-3 mb-lg-0 ">Phân loại</h5>
+                <div class="  ml-auto d-lg-flex">
+                    <div style="width:300px" class="d-flex align-items-center">
+                        <div style="width:150px">
+                            <input type="radio" id="upPrice" name="filterPrice" onclick="UpPrice()">
+                            <label for="upPrice">Giá tăng dần</label>
+                        </div>
+                        <div style="width:150px">
+                            <input type="radio" id="downPrice" name="filterPrice" onclick="DownPrice()">
+                            <label for="downPrice">Giá giảm dần</label>
+                        </div>
+                    </div>
+                    <select id="brandOption" onchange="selectType(event)" class="form-control mr-3 mb-2 hideFilter">
+                        <option value="">Tất cả hãng</option>
+
+                    </select>
+                    <input type="text" class="form-control hideFilter" onkeyup="searchProduct(event)"
+                           placeholder="Tìm sản phẩm">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- giỏ hàng -->
+    <section class="cart" id="cart">
+        <div class="cart-top d-flex">
+            <h3><i class="fa-solid fa-cart-shopping"></i> GIỎ HÀNG</h3>
+            <button class="btn ml-auto" onclick="closeCart()"><i class="fa-solid fa-xmark "></i></button>
+        </div>
+        <h5 id="notifyNoCartItem" class="mt-5 text-center">
+            BẠN CHƯA THÊM SẢN PHẨM NÀO VÀO GIỎ HÀNG <i class="fa-regular fa-face-sad-cry"></i>
+        </h5>
+        <table class="custom-table" id="tableCart">
+            <thead>
+                <tr>
+                    <th>Ảnh</th>
+                    <th>Tên sp</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody id="renderCart">
+            </tbody>
+        </table>
+        <section class="cart-bottom">
+            <span>Tổng tiền : </span>
+            <h5 class="d-inline" id="totalMoney">0</h5>
+            <div class="form-inline mt-3">
+                <button class="btn btn-primary" onclick="paidCart()">Thanh toán</button>
+                <button id="deleteAllCart" class="btn btn-danger ml-2" onclick="clearCart()">Xóa hết giỏ hàng</button>
+            </div>
+        </section>
+    </section>
+    <!-- lớp overlay của giỏ hàng -->
+    <div class="cart-overlay" id="overlay"></div>
+    <!-- list sản phẩm -->
+    <section class="categories mt-5">
+        <div class="container">
+            <div class="row" id="displayProductList">
+                <!-- <div class="col-lg-3 col-md-4 col-12 mb-4">
+                    <div class="product-item p-3">
+                        <a href="#">
+                            <div>
+                                <img class="img-fluid"
+                                    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                    alt="">
+                            </div>
+                            <h5>Tên sản phẩm</h5>
+                            <span class="badge badge-primary">Iphone</span>
+                            <p class="mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+                            <p>dsa</p>
+                            <p>dsa</p>
+                            <p></p>
+                        </a>
+                        <div class="border-top d-flex align-items-center pt-2">
+                            <h6>5.000.000đ</h6>
+                            <button class="btn btn-outline-info ml-auto"><i class="fa-solid fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="myLoader"></div>
+        </div>
+        </div>
+    </section>
+    <dialog class="modal-dialog text-center">
+        <i class="fa-regular fa-circle-xmark  fa-2x text-danger"></i>
+        <h6 class="text-danger mt-3  ">Bạn chưa thêm sản phẩm nào vào giỏ hàng</h6>
+    </dialog>
+
+    <div class="list_comment">
+        <h2>Bình Luận</h2>
+        <div class="comment">
+            <strong>Anh Bưng</strong><br>
+            Sản phẩm rất ok giá lại rất ok luôn không cao hơn bên ngoài. Đặc biệt nhân viên rất nhiệt tình<br>
+            <span class="useful-icon">thumb_up</span>Hữu ích (2) Đã dùng khoảng 4 tháng
+            <span class="floating-icon"></span>
+        </div>
+        
+        <div class="comment">
+            <strong>Dương Đỉnh Khang</strong><br>
+            Nhân viên nhiệt tình trải nghiệm rất tốt pin khá trâu<br>
+            <span class="useful-icon">thumb_up</span>Hữu ích (2) Đã dùng khoảng 3 ngày
+            <span class="floating-icon"></span>
+        </div>
+        
+        <div class="comment">
+            <strong>Nhung Phung</strong><br>
+            Máy mới mua chưa đc 1 tuần mà pin qua đêm tụt 6% dù để chế độ máy bay nguồn điện thấp là có bình thường ko ạ<br>
+            <span class="useful-icon">thumb_up</span>Hữu ích (55) Đã dùng khoảng 7 ngày
+            <span class="floating-icon"></span>
+        </div>
+        
+        <div class="comment">
+            <strong>Nguyễn Lâm Trường</strong><br>
+            Mua được hơn nửa năm không chơi game ngày sạc 1 lần dùng củ sạc chính hãng vẫn bị chai còn 97% pin.<br>
+            <span class="useful-icon">thumb_up</span>Hữu ích (55) Đã dùng khoảng 7 tháng
+            <span class="floating-icon"></span>
+        </div>
+    </div>
+ 
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="contact ">
+                        <h6>Thông tin liên hệ</h6>
+                        <ul>
+                            <li>
+                                <p>
+                                    <strong>Địa chỉ</strong> : 70 Tô Ký, Tân Chánh Hiệp, Quận 12, Thành phố Hồ Chí
+                                    Minh
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Số điện thoại</strong> :
+                                    <a href="tel:+(84)979-99-79" class="links">+(84)979-99-79</a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <strong>Email</strong>
+                                    :
+                                    <a href="mailto:example@mail.com" class="links">min.ip@mail.com</a>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="social">
+                            <ul class="social-icons">
+                                <li class="facebook">
+                                    <a href="https://www.facebook.com/" class="icon">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="twitter">
+                                    <a href="https://twitter.com/" class="icon">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="dribbble">
+                                    <a href="https://dribbble.com/" class="icon">
+                                        <i class="fa-brands fa-dribbble"></i>
+                                    </a>
+                                </li>
+                                <li class="google">
+                                    <a href="https://contacts.google.com/" class="icon">
+                                        <i class="fa-brands fa-google"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contact ">
+                        <div class="info">
+                            <div class="info-list ">
+                                <h6>Quyền lợi</h6>
+                                <ul>
+                                    <li><a href="#" class="links">Tích điểm và quà tặng</a></li>
+                                    <li><a href="#" class="links">Voucher mua hàng</a></li>
+                                    <li><a href="#" class="links">Mua trả góp</a></li>
+                                    <li><a href="#" class="links">Thành viên VIP</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="info-list ">
+                                <h6 class="footer-title-28">Thêm</h6>
+                                <ul>
+                                    <li><a href="#" class="links">Cảnh báo mua hàng</a></li>
+                                    <li><a href="#" class="links">Hướng dẫn mua onlline</a></li>
+                                    <li><a href="#" class="links">Nội quy cửa hàng</a></li>
+                                    <li><a href="#" class="links">Chất lượng phục vụ</a></li>
+                                </ul>
+                            </div>
+                            <div class="info-list ">
+                                <h6>Hỗ trợ</h6>
+                                <ul>
+                                    <li><a href="csbh.html" class="links">Chính sách bảo hành, đổi trả, vận chuyển</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="end-footer ">
+                <div class="container">
+                    <p class="info-footer ">
+                        2023 Webphone. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button onclick="topFunction()" id="movetop" title="Go to top" style="display: block;">
+            ⤴
+        </button>
+
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+    </footer>
+    <!-- backToTop -->
+    <a class="backToTop cd-top text-replace js-cd-top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <!-- backToTop -->
+    <a class="backToTop cd-top text-replace js-cd-top" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+
+
+
+    <!-- Jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <!-- backToTop -->
+    <script src="./js/efffectJs/backToTop.js"></script>
+    <script src="./js/efffectJs/util.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+            crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"
+            integrity="sha512-zJYu9ICC+mWF3+dJ4QC34N9RA0OVS1XtPbnf6oXlvGrLGNB8egsEzu/5wgG90I61hOOKvcywoLzwNmPqGAdATA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/filterOption.js"></script>
+    <!-- Open and close cart  -->
+    <script src="./js/cart/cart-js.js"></script>
+    <!-- Product service axios -->
+    <script src="./js/services/productService.js"></script>
+    <!-- Product OOP -->
+    <script src="./js/models/products.js"></script>
+    <!-- main -->
+    <script src="./js/Product.js"></script>
+</body>
+
+</html>
